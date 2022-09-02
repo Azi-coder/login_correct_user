@@ -9,6 +9,8 @@ public class LoginPage {
     private By signInEmail = By.cssSelector("input[data-qa = login-email]");
 
     private By signInPassword = By.cssSelector("input[data-qa = login-password]");
+    
+    private By signInText = By.xpath("//*[@id=\"form\"]/div/div/div[1]/div/h2");
 
 
     public LoginPage(WebDriver driver) {
@@ -21,6 +23,10 @@ public class LoginPage {
 
     public void setPassword(String userPassword) {
         driver.findElement(signInPassword).sendKeys(userPassword);
+    }
+    
+    public String getText(){
+        return driver.findElement(signInText).getText();
     }
 
     public AccountPage clickSignInButton() {
